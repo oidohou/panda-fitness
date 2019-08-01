@@ -1,0 +1,41 @@
+.nav-link{
+  font-size: 16px;
+  color: #fff !important;
+}
+
+.nav-link.active {
+  background: transparent;
+  color: #3c77f7 !important;
+}
+.nav-link:hover {
+  background: transparent;
+  color: #3c77f7 !important;
+  text-decoration: overline;
+}
+.dropdown-menu {
+  background-color: #343a40;
+  color: #fff;
+   text-align:center;
+  }
+  .dropdown-item{
+    padding: 1rem;
+
+  }
+  .dropdown-item :hover{
+    color:#33b5e5;
+  }
+  .statName{
+    font-weight: 700;
+  }
+  .showing p {
+    font-size: 26px;
+  }
+
+  .hashtags{
+    font-size: 20px;
+    color: #ee700a;
+  }
+
+  .workout{
+    color:#33b5e5;
+  }

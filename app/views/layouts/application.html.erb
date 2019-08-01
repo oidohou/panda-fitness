@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Pandafitness</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css', media: 'all','data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag  'application', media: 'all', 'data-turbolinks-track' => true %>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js', 'data-turbolinks-track' => true %>
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css"/>
+
+    </head>
+
+  <body>
+  <div class="d-flex flex-column body">
+    <%= render "layouts/navigation" %>
+    <%= yield %>
+    </div>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+ <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
+ <script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+ <script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+
+    <script>
+       $(function(){
+          $('.nav-link:not(.dropdown-toggle)').bind('click', function(event) {
+          $('.navbar-collapse').collapse('hide');
+          });
+       })
+    </script>
+  <script>
+    new Morris.Line({
+    // ID of the element in which to draw the chart.
+    element: 'activity_chart',
+    // Chart data records -- each entry in this array corresponds to a point on
+    // the chart.
+    data: $('#activity_chart').data('activities'),
+    // The name of the data record attribute that contains x-values.
+    xkey: 'date',
+    // A list of names of data record attributes that contain y-values.
+    ykeys: ['weight'],
+    // Labels for the ykeys -- will be displayed when you hover over the
+    // chart.
+    labels: ['Weight']
+  });
+  </script>
+  <script>
+    $(document).ready(function(){
+      $('#acti').DataTable(); 
+    });
+    
+  </script>
+  </body>
+</html>

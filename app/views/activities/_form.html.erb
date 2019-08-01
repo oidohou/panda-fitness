@@ -1,0 +1,47 @@
+<div class="container flex-grow-1 p-3 text-center">
+<%= form_with(model: activity, local: true) do |form| %>
+  <% if activity.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(activity.errors.count, "error") %> prohibited this activity from being saved:</h2>
+
+      <ul>
+      <% activity.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<% @name = %w[Running Walking Cycling Swimming Elliptical Strength_Training Circuit_Training Core_Strength
+  Arc_Trainer Rowing Hiking Mountain_Biking Skating Nordic_Walking XC_Skiing Downhill_Skiing Snow_boarding
+  Wheelchair]%>
+  <div class="field row p-2">
+    <%= form.label :Name , {class:' text-right col-2'}%>
+    <%= form.select :name, @name, {}, {class:'form-control col-10'} %>
+  </div>
+
+  <div class="field row p-2">
+    <%= form.label :Date , {class:' text-right col-2'}%>
+    <%= form.date_select :date , {class:'form-control col-10'}%>
+  </div>
+
+  <div class="field row p-2">
+    <%= form.label :Duration , {class:' text-right col-2'} %>
+    <%= form.number_field :duration, {class:'form-control col-10'} %>
+  </div>
+
+  <div class="field row p-2">
+    <%= form.label :Weight , {class:' text-right col-2'} %>
+    <%= form.text_field :weight, {class:'form-control col-10'} %>
+  </div>
+
+  <div class="field row p-2">
+    <%= form.label :Calories_Burnt , {class:' text-right col-2'} %>
+    <%= form.text_field :calories, {class:'form-control col-10'} %>
+  </div>
+
+  <div class="actions col-12 p-2">
+    <%= form.submit "Create activity" , class:" btn btn-dark"%>
+  </div>
+<% end %>
+</div>
