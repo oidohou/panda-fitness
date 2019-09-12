@@ -1,21 +1,12 @@
-// Place all the styles related to the welcome controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+
 .body{
+  width:100vw;
   height: 100vh;
   font-family: 'Montserrat', sans-serif;
+  overflow-x: hidden;
 }
 .tablehead{
   background-color: #343a40;
-  color: #fff;
-}
-
-.foot {  
-  width: 100vw;
-  left: 0;
-  bottom: 0;
-  background-color: #000000; 
-  text-align: center;
   color: #fff;
 }
 
@@ -29,7 +20,6 @@
 }
 
 .welcometext{
-  z-index: 3;
   width: 100vw;
   position: absolute;
   background: transparent;
@@ -39,15 +29,19 @@
 .jumbotron{
   background: transparent !important;
 }
-
+.typewriter h3{
+  color:#fff;
+  font-weight: 700;
+}
 .typewriter p {
   color: #fff;
-  overflow: hidden; /* Ensures the content is not revealed until the animation */
-  border-right: .15em solid transparent; /* The typwriter cursor */
-  white-space: nowrap; /* Keeps the content on a single line */
-  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
-  animation: 
-    typing 3.5s steps(60, end) infinite;
+  text-align: center;
+  //overflow-x: hidden; /* Ensures the content is not revealed until the animation */
+  //border-right: .15em solid transparent; /* The typwriter cursor */
+  //white-space: nowrap; /* Keeps the content on a single line */
+  //margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  //animation: 
+  // typing 3.5s steps(60, end) infinite;
 }
 
 /* The typing effect */
@@ -67,7 +61,8 @@
   font-size:22px;
 }
 .welcome{
-  z-index:1;
+  z-index: -1;
+  height:60vh;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;

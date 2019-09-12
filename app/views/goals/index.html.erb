@@ -1,0 +1,26 @@
+<% if user_signed_in?%>
+<div class="d-flex justify-content-end bg-light py-2 pr-3">
+  <%if @goal != nil%>
+    <div class="px-2 ">
+    </div>
+    <%end%> 
+    <div class="px-2 ">
+    <%if @goal != nil%>
+      <%= link_to 'Update goal', edit_goal_path(@goal), class: "btn btn-light" %>
+    <%end%>
+    </div>
+</div>
+<% end %>
+
+<div class="container flex-grow-1 my-3 d-flex">
+  <div class="align-self-center mx-auto ">
+    <%if @goal != nil%>
+        <p class="goal"><%= @goal.idealWeight %> Kg</p>
+    <%else%>
+      <p class="goal">No goal set</p>
+    <%end%>
+  </div>
+</div>
+
+
+

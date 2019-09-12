@@ -60,3 +60,4 @@ gem 'jquery-datatables-rails'
 gem 'devise'
 gem 'bootstrap', '~> 4.3.1'
 gem "font-awesome-rails"
+gem "cancan"

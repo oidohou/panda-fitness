@@ -1,0 +1,46 @@
+<% if user_signed_in?%>
+<div class="d-flex justify-content-end bg-light py-2 pr-3">
+    <div class="px-2 col-sm-12 col-md-8 text-center ">
+        <form class="form-inline my-2 my-lg-0" action="/search">
+            <input class="form-control mr-sm-2 col-10" type="search" name="q" placeholder="Search by event name or event location" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0 " type="submit">Search</button>
+        </form>
+    </div>
+    <div class="px-2 col-sm-12 col-md-4 text-right">
+    <%= link_to 'Add new event', new_event_path, class: "btn btn-light" %>
+      </div> 
+</div>
+<% end %>
+<div class="flex-grow-1 p-3 text-center mx-4">
+  <h3>All events</h3>
+  <hr/>
+  
+  <div class="row">
+  <% @events.each do |event| %>
+    <div class="col-sm-12 col-md-6 col-lg-4 my-2 ">
+        <div class="card" >            
+            <div class="card-body">              
+              <div class="row py-2">
+                <div class="col-md-4 col-lg-2 eventdate">
+                  <div class="month text-uppercase"><%= event.datestart.strftime("%b")%></div>
+                  <div class="day"><%= event.datestart.strftime("%d")%></div>
+                </div>
+                <div class=" col-md-8 col-lg-10 text-left">
+                  <strong class="card-title text-uppercase"><%=link_to event.name, event %></strong> <br/>
+                  <small><%= event.datestart.strftime("%b")%> <%=event.datestart.strftime("%d")%> - 
+                  <%= event.dateEnd.strftime("%b")%> <%=event.dateEnd.strftime("%d")%> | <%= event.location %> </small> <br/>
+                  <div class="dropdown-divider"></div>
+                  <small class="card-text"><%= event.shortDesc %>
+                    <span id="dots">...</span> 
+                      <%=link_to "read more", event %>
+                  </small>
+                </div>
+              </div>
+              
+              
+            </div>
+          </div>
+    </div>
+    <% end %>
+  </div>
+</div>

@@ -1,4 +1,6 @@
 <div class="container flex-grow-1 p-3 text-center">
+<div class="p-3 p-md-4 border bg-light shadow-lg">
+
 <%= form_with(model: activity, local: true) do |form| %>
   <% if activity.errors.any? %>
     <div id="error_explanation">
@@ -15,33 +17,50 @@
 <% @name = %w[Running Walking Cycling Swimming Elliptical Strength_Training Circuit_Training Core_Strength
   Arc_Trainer Rowing Hiking Mountain_Biking Skating Nordic_Walking XC_Skiing Downhill_Skiing Snow_boarding
   Wheelchair]%>
-  <div class="field row p-2">
+  <div class="field row my-3">
     <%= form.label :Name , {class:' text-right col-2'}%>
-    <%= form.select :name, @name, {}, {class:'form-control col-10'} %>
+    <div class="col-10">
+        <%= form.select :name, @name, {}, {class:'form-control'} %>
+    </div>
   </div>
 
-  <div class="field row p-2">
+  <div class="row my-3">
     <%= form.label :Date , {class:' text-right col-2'}%>
-    <%= form.date_select :date , {class:'form-control col-10'}%>
+    <div class="col-10">
+        <div class="d-flex">
+          <%= form.date_select :date , {class:'form-control'}%>
+        </div>
+      </div>
   </div>
 
-  <div class="field row p-2">
+  <div class="field row my-3">
     <%= form.label :Duration , {class:' text-right col-2'} %>
-    <%= form.number_field :duration, {class:'form-control col-10'} %>
+    <div class="col-10">
+        <%= form.number_field :duration, {class:'form-control'} %>
+    </div>
+    
   </div>
 
-  <div class="field row p-2">
+  <div class="field row my-3">
     <%= form.label :Weight , {class:' text-right col-2'} %>
-    <%= form.text_field :weight, {class:'form-control col-10'} %>
+    <div class="col-10">
+        <%= form.text_field :weight, {class:'form-control'} %>
+    </div>
+    
   </div>
 
-  <div class="field row p-2">
+  <div class="field row my-3">
     <%= form.label :Calories_Burnt , {class:' text-right col-2'} %>
-    <%= form.text_field :calories, {class:'form-control col-10'} %>
+    <div class="col-10">
+        <%= form.text_field :calories, {class:'form-control'} %>
+    </div>
+    
   </div>
 
   <div class="actions col-12 p-2">
-    <%= form.submit "Create activity" , class:" btn btn-dark"%>
+    <%= form.submit "Save activity" , class:" mx-5 btn btn-dark"%>
+    <%= link_to 'Cancel', activities_path , class:" mx-5 btn btn-dark"%>
   </div>
 <% end %>
+</div>
 </div>

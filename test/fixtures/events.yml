@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  datestart: 2019-08-19
+  dateEnd: 2019-08-19
+  location: MyString
+  type: 
+  shortDesc: MyString
+  description: MyText
+
+two:
+  name: MyString
+  datestart: 2019-08-19
+  dateEnd: 2019-08-19
+  location: MyString
+  type: 
+  shortDesc: MyString
+  description: MyText

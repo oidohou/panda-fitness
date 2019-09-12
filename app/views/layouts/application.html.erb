@@ -1,22 +1,28 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Pandafitness</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Move & Groove</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css', media: 'all','data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag  'application', media: 'all', 'data-turbolinks-track' => true %>
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+     <%= javascript_include_tag  'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js', 'data-turbolinks-track' => true %>
         <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css"/>
-
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" 
+  crossorigin="anonymous">
     </head>
 
   <body>
   <div class="d-flex flex-column body">
     <%= render "layouts/navigation" %>
+    <%= render "layouts/alerts" %>    
     <%= yield %>
+    <%= render "layouts/footer" %>
     </div>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -56,5 +62,22 @@
     });
     
   </script>
+  <script>
+      function myFunction() {
+      var dots = document.getElementById("dots");
+      var moreText = document.getElementById("more");
+      var btnText = document.getElementById("myBtn");
+
+      if (dots.style.display === "none") {
+        dots.style.display = "inline";
+        btnText.innerHTML = "read more..."; 
+        moreText.style.display = "none";
+      } else {
+        dots.style.display = "none";
+        btnText.innerHTML = "read less..."; 
+        moreText.style.display = "inline";
+      }
+    }
+</script>
   </body>
 </html>

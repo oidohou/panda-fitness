@@ -1,16 +1,23 @@
 class ActivitiesController < ApplicationController
   before_action :authenticate_user! 
   before_action :set_activity, only: [:show, :edit, :update, :destroy]
+  before_action :set_current_user
+  
 
   # GET /activities
   # GET /activities.json
   def index
     @activities = Activity.all.where(user_id:current_user).order("date DESC")
+    @lastrecord = @activities.first 
+    @goal = Goal.where(user_id:current_user).first
   end
 
   # GET /activities/1
   # GET /activities/1.json
   def show
+    unless User.current.id ==Activity.find(params[:id]).user_id
+      redirect_to root_url, :alert =>'You are not authorize to access this resource'
+    end    
   end
 
   # GET /activities/new
@@ -20,6 +27,10 @@ class ActivitiesController < ApplicationController
 
   # GET /activities/1/edit
   def edit
+    @activitiy = Activity.find(params[:id])
+    unless User.current.id == @activitiy.user_id
+      redirect_to root_url, :alert =>'You are not authorize to access this resource'
+    end
   end
 
   # POST /activities
@@ -55,6 +66,7 @@ class ActivitiesController < ApplicationController
   # DELETE /activities/1
   # DELETE /activities/1.json
   def destroy
+    @activitiy = Activity.find(params[:id])
     @activity.destroy
     respond_to do |format|
       format.html { redirect_to activities_url, notice: 'Activity was successfully destroyed.' }
@@ -65,7 +77,7 @@ class ActivitiesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_activity
-      @activity = Activity.find(params[:id])
+      @activity = Activity.find(params[:id]) rescue not_found
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

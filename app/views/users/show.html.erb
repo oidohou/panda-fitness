@@ -1,0 +1,39 @@
+<div class="container flex-grow-1 p-3 ">
+  <h3>My profile</h3>
+  <hr>
+
+  <div class="row my-3">
+    <div class="col-sm-12 col-md-6 bg-light p-3">
+      <div class="row">
+        <div class="col-12">
+          <%= link_to "" ,new_activity_path,class:"btn fas fa-plus fa-2x", title:"add new activity"%>
+          <%= link_to "" ,activities_path,class:"btn fas fa-eye fa-2x ", title:"View activities"%>
+          <%= link_to "" ,edit_user_registration_path(@user),class:"btn fas fa-user-circle fa-2x", title:"Edit profile"%>
+        </div>
+        <div class="col-12 p-3 my-4">
+          <p ><i class="fas fa-clock fa-2x mr-2"></i> Joined on : <%=@user.created_at.strftime("%B")%> <%=@user.created_at.strftime("%d")%>, 
+          <%=@user.created_at.strftime("%Y")%></p>
+          <p><i class="fas fa-envelope fa-2x mr-2"> </i> <%=@user.email%></p>
+          <p><i class="fas fa-pencil-square fa-2x mr-2"> </i> Last profile updated: <%=@user.updated_at.strftime("%B")%> <%=@user.updated_at.strftime("%d")%>, 
+          <%=@user.updated_at.strftime("%Y")%></p>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-6 p-3">
+      <h6>My events</h6>
+      <hr>
+      <div class="row">
+        <% @events.each do |event| %>
+        <div class="col-sm-12 col-md-6 p-2">
+          <div class="card" >            
+            <div class="card-body"> 
+              <p class="card-title text-uppercase  "><%=link_to event.name, event %></p>
+            </div>
+          </div>
+          </div>
+        <%end%>
+      </div>
+    </div>
+  </div>
+  
+</div>

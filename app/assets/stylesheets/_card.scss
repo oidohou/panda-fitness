@@ -1,0 +1,128 @@
+.trainersection{
+  background-image: url("https://images.unsplash.com/photo-1560233026-ad254fa8da38?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.trainingevents{
+  background-image: url("https://images.unsplash.com/photo-1517438984742-1262db08379e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60");
+  background-repeat: no-repeat;
+  background-size: cover; 
+}
+.trainingcollective{
+  background-image: url("https://images.unsplash.com/photo-1543975200-8e313fb04fc7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60");
+  background-repeat: no-repeat;
+  background-size: cover; 
+}
+.trainingbuddy{
+  background-image: url("https://images.unsplash.com/photo-1529688058915-efa36c307cf7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60") ;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+*,
+:before,
+:after { 
+	box-sizing: border-box;
+}
+
+@keyframes fadeInScale {
+  0% {
+    opacity: 0;
+    transform: scale(0) translateY(50%);
+  }
+	90% {
+		transform: scale(1.05);
+	}
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.section{
+  z-index: 3;
+}
+.allcard {
+	position: relative;	
+	background-color: #292929;
+	transition: all .3s ease-in-out;
+	
+	&:hover {
+		box-shadow: 0 5px 10px 5px rgba(black, .2);
+	}
+}
+
+.allcard__link {
+	display: block;
+	padding: 1em;
+	text-decoration: none;
+}
+
+.allcard__icon {
+	position: absolute;
+	width: 4em;
+	height: 4em;
+	transition: all .3s ease-in-out;
+	
+	.allcard:hover & {
+		opacity: 0;
+		transform: scale(0);
+	}
+}
+
+.allcard__media {
+	padding: 2em 0;
+	
+	svg path {
+		opacity: 0;
+		transition: all .3s ease-in-out;
+		transform-origin: center center;
+	}
+	
+	.allcard:hover & {
+		svg path {
+			animation: fadeInScale .3s ease-in-out forwards;
+		}
+		
+		svg path:nth-child(2) {
+			animation-delay: .1s;
+		}
+		
+		svg path:nth-child(3) {
+			animation-delay: .2s;
+		}
+	}
+}
+
+.allcard__header {
+  position: relative;
+  background-color: #292929;
+  opacity: .7;
+}
+
+.allcard__header-title {
+	margin: 0 0 .25em;
+  color: white;
+}
+
+.allcard__header-meta {
+	margin: 0;
+	color: #999;
+}
+
+.allcard__header-icon {
+	opacity: 0;
+	position: absolute;
+	right: 0;
+	top: 50%;
+	margin-top: -1em;
+	transform: translateX(-20%);
+	width: 2em;
+	height: 2em;
+	transition: all .3s ease-in-out;
+	
+	.allcard:hover & {
+		opacity: 1;
+		transform: translateX(0);
+  }
+}

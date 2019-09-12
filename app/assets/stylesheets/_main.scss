@@ -10,7 +10,7 @@
 .nav-link:hover {
   background: transparent;
   color: #3c77f7 !important;
-  text-decoration: overline;
+  text-decoration: underline;
 }
 .dropdown-menu {
   background-color: #343a40;
@@ -20,6 +20,10 @@
   .dropdown-item{
     padding: 1rem;
 
+  }
+
+  .newactivity:hover{
+    color: #000 !important;
   }
   .dropdown-item :hover{
     color:#33b5e5;
@@ -38,4 +42,15 @@
 
   .workout{
     color:#33b5e5;
+  }
+  .footer{
+    color:#fff;
+  }
+  .footer-link{
+color:#fff !important;
+  }
+
+  .title{
+    font-size: 18px;
+    font-weight:700;
   }

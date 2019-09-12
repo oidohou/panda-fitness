@@ -1,0 +1,40 @@
+
+<div class="flex-grow-1 p-3 text-center mx-4">
+  <h3>Search results</h3>
+  <hr/>
+  
+  <div class="row">
+  <% if @events ==  nil%>
+    <div class="text-center">
+      <p class="text-center">No results found</p>
+    </div>
+  <% else %>
+    <% @events.each do |event| %>
+      <div class="col-sm-12 col-md-4 my-2 ">
+          <div class="card" >            
+              <div class="card-body">              
+                <div class="row py-2">
+                  <div class="col-2 eventdate">
+                    <div class="month text-uppercase"><%= event.datestart.strftime("%b")%></div>
+                    <div class="day"><%= event.datestart.strftime("%d")%></div>
+                  </div>
+                  <div class="col-10 text-left">
+                    <strong class="card-title text-uppercase"><%=link_to event.name, event %></strong> <br/>
+                    <small><%= event.datestart.strftime("%b")%> <%=event.datestart.strftime("%d")%> - 
+                    <%= event.dateEnd.strftime("%b")%> <%=event.dateEnd.strftime("%d")%> | <%= event.location %> </small> <br/>
+                    <div class="dropdown-divider"></div>
+                    <small class="card-text"><%= event.shortDesc %>
+                      <span id="dots">...</span> 
+                        <%=link_to "read more", event %>
+                    </small>
+                  </div>
+                </div>
+                
+                
+              </div>
+            </div>
+      </div>
+      <% end %>
+    <%end%>
+  </div>
+</div>
